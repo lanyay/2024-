@@ -1,0 +1,597 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="pragram" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+		<meta http-equiv="expires" content="0">
+		<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" media="screen" />
+		<!--meta http-equiv="refresh" content="300;URL=/index" -->
+		<META http-equiv="windows-Target" contect="_top">
+		<title>济南市教育局考试信息官方服务平台</title>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/validationEngine.jquery.css">
+		<style type="text/css">
+			.loginplan_bg {
+				float: center;
+				text-align: center;
+				width: 100%;
+				background: #f5f8fc;
+				height: 310px;
+			}
+
+			.loginplan {
+				text-align: left;
+				width: 100%;
+				background: #f5f8fc;
+				border-top: 1px solid #78a3d3;
+				margin: 0px auto;
+				height: 308px;
+				overflow-y: auto;
+			}
+
+			.select div {
+				border: 1px solid #0787a3;
+				float: left;
+			}
+
+			/* 子选择器，在FF等非IE浏览器中识别 */
+			.select>div {
+				width: 300px;
+				height: 25px;
+				overflow: hidden;
+			}
+
+			/* 通配选择符，只在IE浏览器中识别 */
+			* html .select div select {
+				display: block;
+				float: left;
+				margin: -2px;
+			}
+
+			.select {
+				border: 1px solid #0787a3;
+				float: left;
+				display: inline;
+				height: 30px;
+				padding-left: 5px;
+				FONT: 14px Tahoma, Verdana, "SimSun";
+				line-height: 20px;
+			}
+
+			.select div>select {
+				display: block;
+				width: 304px;
+				float: none;
+				margin: -2px;
+				padding: 0px;
+			}
+
+			.select:hover {
+				border: 1px solid #666666;
+			}
+
+			.select select>option {
+				line-height: 24px;
+				padding-left: 5px;
+			}
+
+			select {
+				outline: none;
+			}
+
+			ul {
+				list-style: none;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			.regsubmit {
+				display: inline-block;
+				width: 200px;
+				height: 40px;
+				vertical-align: middle;
+				border: none;
+				border-radius: 4px;
+				background: #6095C1;
+				font-size: 16px;
+				font-weight: 700;
+				text-align: center;
+				color: #FFF;
+				cursor: pointer;
+			}
+
+			.regsubmit:hover {
+				opacity: .7;
+			}
+
+			/* 本例子css */
+			.picScroll-left {
+				overflow: hidden;
+				position: relative;
+				border: 1px solid #ccc;
+			}
+
+			.picScroll-left .hd {
+				overflow: hidden;
+				height: 30px;
+				background: #f4f4f4;
+				padding: 0 10px;
+			}
+
+			.picScroll-left .hd .prev,
+			.picScroll-left .hd .next {
+				display: block;
+				width: 5px;
+				height: 9px;
+				float: right;
+				margin-right: 5px;
+				margin-top: 10px;
+				overflow: hidden;
+				cursor: pointer;
+				background: url("../images/arrow.png") 0 0 no-repeat;
+			}
+
+			.picScroll-left .hd .next {
+				background-position: 0 -50px;
+			}
+
+			.picScroll-left .hd .prevStop {
+				background-position: -60px 0;
+			}
+
+			.picScroll-left .hd .nextStop {
+				background-position: -60px -50px;
+			}
+
+			.picScroll-left .hd ul {
+				float: right;
+				overflow: hidden;
+				zoom: 1;
+				margin-top: 10px;
+				zoom: 1;
+			}
+
+			.picScroll-left .hd ul li {
+				float: left;
+				width: 9px;
+				height: 9px;
+				overflow: hidden;
+				margin-right: 5px;
+				text-indent: -999px;
+				cursor: pointer;
+				background: url("../images/icoCircle.gif") 0 -9px no-repeat;
+			}
+
+			.picScroll-left .hd ul li.on {
+				background-position: 0 0;
+			}
+
+			.picScroll-left .bd {
+				padding: 5px;
+			}
+
+			.picScroll-left .bd ul {
+				overflow: hidden;
+				zoom: 1;
+			}
+
+			.picScroll-left .bd ul li {
+				margin: 0 1px;
+				float: left;
+				_display: inline;
+				overflow: hidden;
+				text-align: center;
+			}
+
+			.picScroll-left .bd ul li .pic {
+				text-align: center;
+			}
+
+			.picScroll-left .bd ul li .pic img {
+				width: 190px;
+				display: block;
+				padding: 2px;
+				border: 0px solid #ccc;
+			}
+
+			.picScroll-left .bd ul li .pic a:hover img {
+				border-color: #999;
+			}
+
+			.picScroll-left .bd ul li .title {
+				line-height: 24px;
+			}
+
+			-->
+		</style>
+		<script type="text/javascript" language="javascript" src="js/jquery-1.9.1.min.js"></script>
+
+		<script>
+			function AutoCompleteSwitch(objForm,autoCompleteValue){
+	var objElements = objForm.elements;
+	for(var i=0;i<objElements.length;i++){
+		if(objElements[i].type=="text"){
+			objElements[i].autocomplete=autoCompleteValue;
+		}
+	}
+}
+String.prototype.trim = function(){
+	return this.replace(/　/g," ").replace(/ /g, "");
+}
+var today = new Date();
+var year = today.getFullYear() +"";
+year = year.substr(2,2);
+
+var cTime=300;
+function TimeClose(){
+	 window.setTimeout('TimeClose()',1000);
+	 if(cTime<=0) CloseWindow_Click();
+	 cTime--;
+}
+function CloseWindow_Click(){
+	window.open("","_self"); 
+   	window.opener=null; 
+   	window.close();
+	}
+	
+function submitParam(){
+	var form = document.createElement("form");
+	form.action = 'result.html';
+	form.method = 'get';
+	form.style.display = "none";
+	document.body.appendChild(form);
+
+	
+	var name = document.getElementById('studentId').value;
+	var pwd=document.getElementById('personId').value;
+	
+	console.log('studentId='+name);
+	console.log('personId='+pwd);
+	
+	sessionStorage.setItem('studentId',name);
+	sessionStorage.setItem('personId',pwd);
+	
+	form.submit();
+	return form;
+	
+}
+
+</script>
+	</head>
+	<body onLoad="AutoCompleteSwitch(document.forms[0],'off');document.all.username.focus();">
+		<div class="main" id="main">
+
+			<div class="header">
+				<div class="logo"><a href="http://jnedu.jinan.gov.cn/"><img src="images/logo.png" style="border:0;" /></a></div>
+			</div>
+			<div class="content" id="content">
+
+				<table style="width:100%;text-align:center;" cellpadding="0" cellspacing="0">
+					<tr>
+						<td class="READNEWSTITLE" style="height:70px;text-align:center;vertical-align:middle;">山东省济南市普通高校考试信息综合查询平台</td>
+					</tr>
+					<!--tr><td> <hr size="2"></td></tr -->
+					<tr>
+						<td style="height:300px;">
+							<div class="loginplan_bg">
+								<div class="loginplan" id="loginplan">
+									<form id='loginform' method="post" autocomplete="off" action="result.html">
+										<table style="width:100%;">
+											<tr>
+												<td colspan="2" style="height:60px;text-align:center;" class="READNEWSTITLE_BLUE">考 生 登 录</td>
+											</tr>
+											<tr>
+											
+											</tr>
+											<tr>
+												<td class="STYLE11" style="height:40px;text-align:right;padding-right:5px;vertical-align:middle;">考 生 号:</td>
+												<td style="padding-left:50px;">
+													<input type="text" id="studentId" name="username" class="validate[required,maxSize[16],custom[onlyNumberSp],funcCall[checkUsername]] TextBox"
+													 style="width:280px;" maxlength="16" value="" />
+												</td>
+											</tr>
+											<tr>
+												<td class="STYLE11" style="height:40px;text-align:right;padding-right:5px;vertical-align:middle;">身份证号:</td>
+												<td style="padding-left:50px;">
+													<input type="password" id="personId" name="password" class="validate[required] TextBox" style="width:280px;"
+													 maxlength="18" value="" />
+												</td>
+											</tr>
+											<tr>
+												<td class="STYLE11" style="height:40px;text-align:right;padding-right:5px;vertical-align:middle;">验 证 码:</td>
+												<td style="vertical-align:middle;padding-left:50px;">
+													<input type="text" value="" placeholder="" size="20" maxlength="100" />
+<canvas id="canvas" width="100" height="30" onclick="dj()" 
+	  style="border: 1px solid #ccc;
+        border-radius: 5px;"></canvas>
+													</span>
+												</td>
+											</tr>
+											<script>
+ var show_num = [];
+ draw(show_num);
+function dj(){
+ draw(show_num);   
+ }
+function sublim(){
+var val=document.getElementById("text").value;  
+            var num = show_num.join("");
+            if(val==''){
+                alert('请输入验证码！');
+
+            }else{
+                alert('验证码错误！请重新输入！');
+                document.getElementById("text").value='';
+                draw(show_num);
+            }
+        
+       
+		
+          }
+function draw(show_num) {
+        var canvas_width=document.getElementById('canvas').clientWidth;
+        var canvas_height=document.getElementById('canvas').clientHeight;
+        var canvas = document.getElementById("canvas");//获取到canvas的对象，演员
+        var context = canvas.getContext("2d");//获取到canvas画图的环境，演员表演的舞台
+        canvas.width = canvas_width;
+        canvas.height = canvas_height;
+        var sCode = "A,B,C,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,W,X,Y,Z,1,2,3,4,5,6,7,8,9,0,q,w,e,r,t,y,u,i,o,p,a,s,d,f,g,h,j,k,l,z,x,c,v,b,n,m";
+        var aCode = sCode.split(",");
+        var aLength = aCode.length;//获取到数组的长度
+			
+        for (var i = 0; i <= 3; i++) {
+            var j = Math.floor(Math.random() * aLength);//获取到随机的索引值
+            var deg = Math.random() * 30 * Math.PI / 180;//产生0~30之间的随机弧度
+            var txt = aCode[j];//得到随机的一个内容
+            show_num[i] = txt;
+            var x = 10 + i * 20;//文字在canvas上的x坐标
+            var y = 20 + Math.random() * 8;//文字在canvas上的y坐标
+            context.font = "bold 23px 微软雅黑";
+
+            context.translate(x, y);
+            context.rotate(deg);
+
+            context.fillStyle = randomColor();
+            context.fillText(txt, 0, 0);
+
+            context.rotate(-deg);
+            context.translate(-x, -y);
+        }
+        for (var i = 0; i <= 5; i++) { //验证码上显示线条
+            context.strokeStyle = randomColor();
+            context.beginPath();
+            context.moveTo(Math.random() * canvas_width, Math.random() * canvas_height);
+            context.lineTo(Math.random() * canvas_width, Math.random() * canvas_height);
+            context.stroke();
+        }
+        for (var i = 0; i <= 30; i++) { //验证码上显示小点
+            context.strokeStyle = randomColor();
+            context.beginPath();
+            var x = Math.random() * canvas_width;
+            var y = Math.random() * canvas_height;
+            context.moveTo(x, y);
+            context.lineTo(x + 1, y + 1);
+            context.stroke();
+        }
+    }
+function randomColor() {//得到随机的颜色值
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return "rgb(" + r + "," + g + "," + b + ")";
+    }
+</script>
+											<tr>
+												<td colspan="2" style="height:10px;text-align:center;vertical-align:bottom;">
+													<input type="button" onclick="submitParam()" onsubmit="null"  class="regsubmit" value="查&nbsp;&nbsp;询">
+													<!-- <input type="submit" class="regsubmit"  value="查&nbsp;&nbsp;询"> -->
+												</td>
+											</tr>
+										</table>
+									</form>
+								</div>							
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="height:10px;font:bold 15px Arial;line-height:24px;text-align:center;">
+							<div style="background:#fff9e3;border:1px solid #fadc80;color:#743e04;width:100%;padding:8px;">
+								提示：在网吧等公共场所查询完成后,请及时关闭浏览器窗口,以免你的个人信息泄露!
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="height:5px;">&nbsp;</td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="footer">
+				<TABLE border=0 cellSpacing=0 cellPadding=0 style="text-align:center;width:100%;vertical-align:bottom;padding:8px 0 0 0;">
+					<TBODY>
+						<TR>
+							<TD style="height:25px;">建议使用IE8以上或Firefox浏览器，分辨率设置在1600*900以上</TD>
+						</TR>
+						<TR>
+							<TD style="height:25px;"><A href="http://www.ganseea.cn/" target="_blank">济南市教育局</A>&copy;
+						</TR>
+					</TBODY>
+				</TABLE>
+			</div>
+		</div>
+	</body>
+	<script language="javascript" type="text/javascript" src="js/jquery.validationEngine-zh_CN.js"></script>
+	<script language="javascript" type="text/javascript" src="js/jquery.validationEngine.js"></script>
+	<script language="javascript" type="text/javascript" src="js/function.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+	<script type="text/javascript" language="javascript" src="js/layer/layer.js"></script>
+	<script type="text/javascript" language="javascript" src="js/jsencrypt.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$.fn.serializeObject = function() {
+				var o = {};
+				var a = this.serializeArray();
+				$.each(a, function() {
+					if (o[this.name]) {
+						if (!o[this.name].push) {
+							o[this.name] = [o[this.name]];
+						}
+						o[this.name].push(this.value || '');
+					} else {
+						o[this.name] = this.value || '';
+					}
+				});
+				return o;
+			};
+
+			$('#loginform')[0].reset();
+			var h1 = $(window).height();
+			if (h1 < 750) h1 = 750;
+			$('#main').height(h1);
+			$(".content").height(h1 - 210);
+			$(".loginplan_bg").height(h1 - 320);
+			$(".loginplan").height(h1 - 475);
+			$(window).resize(function() {
+				h1 = $(window).height();
+				if (h1 < 750) h1 = 750;
+				$('#main').height(h1);
+				$(".content").height(h1 - 210);
+				$(".loginplan_bg").height(h1 - 320);
+				$(".loginplan").height(h1 - 475);
+			});
+
+
+			//jQuery(".picScroll-left").slide({mainCell:".bd ul",autoPlay:true,effect:"leftMarquee",vis:5,interTime:60,trigger:"click"});
+			$('#loginform').validationEngine('attach', {
+				promptPosition: 'topRight:-40,5',
+				scroll: false
+			});
+			/**
+			$('#loginform').validationEngine({
+				prettySelect: true,
+				ajaxFormValidation: true,
+				ajaxFormValidationMethod: 'post',
+				onAjaxFormComplete: function(status, form, json, options){
+					if(json.success){
+						var type = $("#type").val();
+						if(type=='gkcjcx'){
+							getGkcjkItem(json.results,$("#type").find("option:selected").text());
+						}else if(type=='myksgkcjcx'){
+							getMysjksGkcjItem(json.results,$("#type").find("option:selected").text());
+						}else if(type=='gklqcx'){
+							getGklqkItem(json.results,$("#type").find("option:selected").text());
+						}else if(type=='ysxkcx'){
+							getYsxkbakItem(json.results,$("#type").find("option:selected").text());
+						}else if(type=='ystytkcx'|| type=='kcpmcx'){
+							getYstytkcxItem(json.results,$("#type").find("option:selected").text());
+						}else if(type=='ystytkzhcjcx'){
+							getYstytkzhcjcxItem(json.results,$("#type").find("option:selected").text());
+						}else if(type=='czcjcx'){
+							getCzcjkItem(json.results,$("#type").find("option:selected").text());
+						}else if(type=='czlqcx'){
+							getCzlqkItem(json.results,$("#type").find("option:selected").text());
+						}
+					}else{
+						layer.msg('<span style="color:#F00;font-size:12pt;">'+json.msg+'</span>',
+							{icon:2, title:'提示',area: '420px',move: false,closeBtn: 2,time:0,btn:['确定']},
+							function() {
+								$('#loginform')[0].reset();
+							}
+						);
+					}
+				}
+			});
+			*/
+
+			$('#loginBtn').on('click', function() {
+				// var formParam = $('#loginform').serializeObject();
+				// $.ajax({
+				// 	url: '/getRsaKeyPublic',
+				// 	dataType: 'text',
+				// 	type: 'get',
+				// 	success: function(data) {
+				// 		var jsentrypt = new JSEncrypt();
+				// 		jsentrypt.setPublicKey(data);
+				// 		formParam.password = jsentrypt.encrypt(formParam['password']);
+				// 		$.ajax({
+				// 			url: '/loginCheck',
+				// 			type: 'post',
+				// 			data: formParam,
+				// 			success: function(json) {
+				// 				if (json.success) {
+				// 					var type = $("#type").val();
+				// 					if (type == 'gkcjcx') {
+				// 						getGkcjkItem(json.results, $("#type").find("option:selected").text());
+				// 					} else if (type == 'myksgkcjcx') {
+				// 						getMysjksGkcjItem(json.results, $("#type").find("option:selected").text());
+				// 					} else if (type == 'gklqcx') {
+				// 						getGklqkItem(json.results, $("#type").find("option:selected").text());
+				// 					} else if (type == 'ysxkcx') {
+				// 						getYsxkbakItem(json.results, $("#type").find("option:selected").text());
+				// 					} else if (type == 'ystytkcx' || type == 'kcpmcx') {
+				// 						getYstytkcxItem(json.results, $("#type").find("option:selected").text());
+				// 					} else if (type == 'ystytkzhcjcx') {
+				// 						getYstytkzhcjcxItem(json.results, $("#type").find("option:selected").text());
+				// 					} else if (type == 'czcjcx') {
+				// 						getCzcjkItem(json.results, $("#type").find("option:selected").text());
+				// 					} else if (type == 'czlqcx') {
+				// 						getCzlqkItem(json.results, $("#type").find("option:selected").text());
+				// 					}
+				// 				} else {
+				// 					layer.msg('<span style="color:#F00;font-size:12pt;">' + json.msg + '</span>', {
+				// 							icon: 2,
+				// 							title: '提示',
+				// 							area: '420px',
+				// 							move: false,
+				// 							closeBtn: 2,
+				// 							time: 0,
+				// 							btn: ['确定']
+				// 						},
+				// 						function() {
+				// 							//$('#loginform')[0].reset();
+				// 						}
+				// 					);
+				// 				}
+				// 			}
+				// 		});
+				// 	}
+				// });
+			})
+
+
+
+
+			$.ajax({
+				type: "post",
+				//url: "/getQueryitems",
+				url: "/listAllQueryitems",
+				dataType: "json",
+				contentType: "application/json",
+				success: function(data, textStatus) {
+					$("#type").empty();
+					var results = data.results;
+					var totalCount = results.length;
+					if (data.success && totalCount > 0) {
+						for (var i = 0; i < totalCount; i++) {
+							if (results[i].isdefault == '1') {
+								$("#type").append("<option value='" + results[i].xtype + "' selected=\"selected\">" + results[i].disptext +
+									"</option>");
+							} else {
+								$("#type").append("<option value='" + results[i].xtype + "'>" + results[i].disptext + "</option>");
+							}
+						}
+					}
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					//alert(errorThrown);
+				}
+			})
+		});
+	</script>
+</html>
